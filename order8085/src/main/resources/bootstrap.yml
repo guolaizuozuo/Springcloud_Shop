@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: order
+  #Config客户端配置
+  cloud:
+    config:
+      label: master #分支名称
+      name: config #配置文件名称
+      profile: test #读取后缀名称 上诉3个综合就是 master分支上 com.abc.config-dev.yml
+      uri: http://localhost:8082
+    stream:
+      bindings:
+        myMessage:
+          group: order
+          content-type: application/json
+
+  rabbitmq:
+     host: 192.168.149.160
+     port: 5672
+     username: admin
+     password: admin
+#  zipkin:
+#    base-url:
+#      base-url: http://112.74.49.216:9411
+#  sleuth:
+#    sampler:
+#      probability: 1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+server:
+  port: 8085
+  servlet:
+    context-path: /
+
+#hystrix熔断策略配置
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2200
+
+
+
+
+#Feign如何开启熔断
+feign:
+    hystrix:
+        enabled: true
+#management:
+#    context-path: /
+
+
+#设置feign客户端超时时间（OpenFeign默认支持ribbon）
+ribbon:
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的实际
+  ReadTimeout: 5000
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 5000
+
+mybatis:
+  # spring boot集成mybatis的方式打印sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true

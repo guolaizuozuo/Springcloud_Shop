@@ -1,0 +1,36 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+#      routes:
+#        - id: payment_route # 路由的id,没有规定规则但要求唯一,建议配合服务名
+#          #匹配后提供服务的路由地址
+#          #uri: http://localhost:8001
+#          uri: lb://CLOUD-PAYMENT-SERVICE
+#          predicates:
+#            - Path=/payment/get/** # 断言，路径相匹配的进行路由
+#        - id: payment_route2
+#          uri: lb://CLOUD-PAYMENT-SERVICE
+#          predicates:
+#            - Path=/payment/lb/** #断言,路径相匹配的进行路由
+#            #- After=2020-10-01T16:44:15.064+08:00[Asia/Shanghai]
+#            #- Cookie=username,guolaizuozuo
+#            #- Host=**.tc51.common
+
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+

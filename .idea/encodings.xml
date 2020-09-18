@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apigateway8086" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/client8081" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config8082" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka9001" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order8085" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/product8084" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user8087" charset="UTF-8" />
+  </component>
+</project>

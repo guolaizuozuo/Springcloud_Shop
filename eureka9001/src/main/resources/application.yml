@@ -1,0 +1,17 @@
+
+server:
+  port: 9001
+spring:
+  application:
+    name: eureka9001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+    registerWithEureka: false
+    # false表示自己端就是注册中心,我的职责就是维护服务实例,并不需要检索服务
+    fetch-registry: false
+  server:
+    enable-self-preservation: false
+client:

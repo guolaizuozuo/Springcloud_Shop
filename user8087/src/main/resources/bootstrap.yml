@@ -1,0 +1,52 @@
+spring:
+    application:
+        name: user8087
+    cloud:
+  #Config客户端配置
+        config:
+          label: master #分支名称
+          name: config #配置文件名称
+          profile: test #读取后缀名称 上诉3个综合就是 master分支上 com.abc.config-dev.yml
+          uri: http://localhost:8082
+    rabbitmq:
+      host: 192.168.149.160
+      port: 5672
+      username: admin
+      password: admin
+
+
+    redis:
+      host: 192.168.149.160
+      password: 123456
+      database: 1
+
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss.SSS
+      time-zone: GMT+8
+      defaultPropertyInclusion: non_null   #非空属性才序列化
+      deserialization:
+        FAIL_ON_UNKNOWN_PROPERTIES: false #未定义的key不序列化
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.abc.entities
+
+
+eureka:
+  client:
+    service-url:
+        defaultZone: http://localhost:9001/eureka/
+server:
+   port: 8087
+   servlet:
+     context-path: /
+
+config:
+  info: wahaha
+
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

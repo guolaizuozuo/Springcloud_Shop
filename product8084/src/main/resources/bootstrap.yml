@@ -1,0 +1,46 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: product
+
+  #Config客户端配置
+  cloud:
+    config:
+      label: master #分支名称
+      name: config #配置文件名称
+      profile: test #读取后缀名称 上诉3个综合就是 master分支上 com.abc.config-dev.yml
+      uri: http://localhost:8082
+
+  rabbitmq:
+     host: 192.168.149.160
+     port: 5672
+     username: admin
+     password: admin
+
+  redis:
+    host: 192.168.149.160
+    password: 123456
+    database: 1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.abc.entities
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
