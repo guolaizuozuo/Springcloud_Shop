@@ -14,7 +14,7 @@ spring:
           search-paths:
             - springcloud-config
           username: guolaizuozuo
-          password: Admin123~
+          password: ****
         #读取分支
       label: master
 
