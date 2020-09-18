@@ -41,8 +41,6 @@ server:
    servlet:
      context-path: /
 
-config:
-  info: wahaha
 
 #暴露监控端点
 management:
